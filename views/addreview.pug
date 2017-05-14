@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Review
+        // register form
+        form(method='POST' action='/postreview')
+            div.form-group
+                label(for='Review') Review:
+                input#review.form-control(type='text', placeholder='your review here' name='review')
+            div.form-group
+                label(for='rating') Rating:
+                input#rating.form-control(type='number', placeholder='rating out of five' name='rating')
+                input#userreviewed.form-control(type='hidden', name='userreviewed' value=userreviewed)
+            button.btn.btn-primary(type='submit') Submit Review

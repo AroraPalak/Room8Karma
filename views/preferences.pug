@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    h4 Hello #{name}!
+    p.
+        Before we get started, help us get an idea of what sort of roomie you can be! This will show your possible compatibility with other users.
+    br
+    p.
+        P.S Don't worry, there are no wrong answers!
+
+
+    form.form-inline(method='POST' action='/preferences')
+        .row
+            label.col-md-2.col-form-label(for='cleanliness') Cleanliness
+            select#cleanliness(name='cleanliness').custom-select.col-md-6
+                option(selected='') Choose...
+                option(value='Not in my Vocabulary') Not in my Vocabulary
+                option(value='Not top of my list') Not top of my list
+                option(value='Not too messy. not too fussy') Not too messy. not too fussy
+                option(value='Cleanliness is Godliness') Cleanliness is Godliness
+        .row
+            label.col-md-2.col-form-label(for='smoking') Smoking
+            select#smoking(name='smoking').custom-select.col-md-6
+                option(selected='') Choose...
+                option(value='My Room is my Ashtray') My Room is my Ashtray
+                option(value='Not in the House') Not in the House
+                option(value='Smoking kills') Smoking kills
+
+        .row
+            label.col-md-2.col-form-label(for='drinking') Drinking
+            select#drinking(name='drinking').custom-select.col-md-6
+                option(selected='') Choose...
+                option(value='Chug Chug Chug') Chug Chug Chug
+                option(value='Sometimes, no puking though') Sometimes, no puking though
+                option(value='Teetotaler') Teetotaler
+        .row
+            label.col-md-2.col-form-label(for='party') Party Animal?
+            select#party(name='party').custom-select.col-md-6
+                option(selected='') Choose...
+                option(value='Absolutely, my house always rocks') Absolutely, my house always rocks
+                option(value='Small groups, non-nuisance type') Small groups, non-nuisance type
+                option(value='Not really, more into Jazz') Not really, more into Jazz
+        .row
+            div.form-group
+                label(for='age') Your age:
+                input#age.form-control(type='Integer' name='age' placeholder="age in years")
+        .row
+            div.form-group
+                label(for='about') What best describes you?
+                input#about.form-control(type='text' name='about' placeholder="a little about yourself")
+        button.btn.btn-primary(type='submit') Submit
